@@ -256,6 +256,14 @@ const ruleProviders = {
         url: "https://gcore.jsdelivr.net/gh/powerfullz/override-rules@master/ruleset/Crypto.list",
         path: "./ruleset/Crypto.list",
     },
+    PrivateTracker: {
+        type: "http",
+        behavior: "classical",
+        format: "text",
+        interval: 86400,
+        url: "https://raw.githubusercontent.com/Copperchaleu/ios_rule_script/refs/heads/master/rule/Clash/PrivateTracker/PrivateTracker.list",
+        path: "./ruleset/PrivateTracker.list",
+    },
 };
 
 const baseRules = [
@@ -285,6 +293,7 @@ const baseRules = [
     "GEOSITE,BAHAMUT,Bahamut",
     "GEOSITE,BILIBILI,Bilibili",
     "GEOSITE,PIKPAK,PikPak",
+    `RULE-SET,PrivateTracker,${PROXY_GROUPS.DIRECT}`,
     `GEOSITE,GFW,${PROXY_GROUPS.SELECT}`,
     `GEOSITE,CN,${PROXY_GROUPS.DIRECT}`,
     `GEOSITE,PRIVATE,${PROXY_GROUPS.DIRECT}`,
