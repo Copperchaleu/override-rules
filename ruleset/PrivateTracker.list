@@ -283,3 +283,7 @@ DOMAIN,tracker.novahd.top
 DOMAIN,tracker.pterclub.net
 DOMAIN,www.pttime.fun
 DOMAIN,zmpt.cc
+# Auto-synced from Transmission
+# Transmission peer port
+DST-PORT,51413
+SRC-PORT,51413
