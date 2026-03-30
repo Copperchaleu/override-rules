@@ -261,7 +261,7 @@ const ruleProviders = {
         behavior: "classical",
         format: "text",
         interval: 86400,
-        url: "https://raw.githubusercontent.com/Copperchaleu/ios_rule_script/refs/heads/master/rule/Clash/PrivateTracker/PrivateTracker.list",
+        url: "https://gcore.jsdelivr.net/gh/Copperchaleu/override-rules@main/ruleset/PrivateTracker.list",
         path: "./ruleset/PrivateTracker.list",
     },
 };
@@ -293,7 +293,7 @@ const baseRules = [
     "GEOSITE,BAHAMUT,Bahamut",
     "GEOSITE,BILIBILI,Bilibili",
     "GEOSITE,PIKPAK,PikPak",
-    `RULE-SET,PrivateTracker,${PROXY_GROUPS.DIRECT}`,
+    "RULE-SET,PrivateTracker,PrivateTracker",
     `GEOSITE,GFW,${PROXY_GROUPS.SELECT}`,
     `GEOSITE,CN,${PROXY_GROUPS.DIRECT}`,
     `GEOSITE,PRIVATE,${PROXY_GROUPS.DIRECT}`,
@@ -788,6 +788,12 @@ function buildProxyGroups({
             icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Server.png",
             type: "select",
             proxies: defaultProxies,
+        },
+        {
+            name: "PrivateTracker",
+            icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Download.png",
+            type: "select",
+            proxies: [PROXY_GROUPS.DIRECT, PROXY_GROUPS.SELECT, PROXY_GROUPS.MANUAL, "REJECT"],
         },
         {
             name: "搜狗输入法",
