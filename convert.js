@@ -620,8 +620,8 @@ function buildProxyGroups({
      */
     const frontProxySelector = landing
         ? defaultSelector.filter(
-              (name) => name !== PROXY_GROUPS.LANDING && name !== PROXY_GROUPS.FALLBACK
-          )
+            (name) => name !== PROXY_GROUPS.LANDING && name !== PROXY_GROUPS.FALLBACK
+        )
         : [];
 
     return [
@@ -639,36 +639,36 @@ function buildProxyGroups({
         },
         landing
             ? {
-                  name: "前置代理",
-                  icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Area.png",
-                  type: "select",
-                  /**
-                   * regex 模式：`include-all` 拉取所有节点，`exclude-filter` 排除落地节点，
-                   * 同时在 `proxies` 里附加手动指定的候选组名列表（各国家组等）。
-                   * 枚举模式：直接列出候选组名（落地节点已在构建 `frontProxySelector` 时过滤）。
-                   */
-                  ...(regexFilter
-                      ? {
-                            "include-all": true,
-                            "exclude-filter": LANDING_PATTERN,
-                            proxies: frontProxySelector,
-                        }
-                      : { proxies: frontProxySelector }),
-              }
+                name: "前置代理",
+                icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Area.png",
+                type: "select",
+                /**
+                 * regex 模式：`include-all` 拉取所有节点，`exclude-filter` 排除落地节点，
+                 * 同时在 `proxies` 里附加手动指定的候选组名列表（各国家组等）。
+                 * 枚举模式：直接列出候选组名（落地节点已在构建 `frontProxySelector` 时过滤）。
+                 */
+                ...(regexFilter
+                    ? {
+                        "include-all": true,
+                        "exclude-filter": LANDING_PATTERN,
+                        proxies: frontProxySelector,
+                    }
+                    : { proxies: frontProxySelector }),
+            }
             : null,
         landing
             ? {
-                  name: PROXY_GROUPS.LANDING,
-                  icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Airport.png",
-                  type: "select",
-                  /**
-                   * regex 模式：`include-all` + `filter` 动态筛选落地节点。
-                   * 枚举模式：直接列出已识别的落地节点名称。
-                   */
-                  ...(regexFilter
-                      ? { "include-all": true, filter: LANDING_PATTERN }
-                      : { proxies: landingNodes }),
-              }
+                name: PROXY_GROUPS.LANDING,
+                icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Airport.png",
+                type: "select",
+                /**
+                 * regex 模式：`include-all` + `filter` 动态筛选落地节点。
+                 * 枚举模式：直接列出已识别的落地节点名称。
+                 */
+                ...(regexFilter
+                    ? { "include-all": true, filter: LANDING_PATTERN }
+                    : { proxies: landingNodes }),
+            }
             : null,
         {
             name: PROXY_GROUPS.FALLBACK,
@@ -793,7 +793,7 @@ function buildProxyGroups({
             name: "PrivateTracker",
             icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Download.png",
             type: "select",
-            proxies: [PROXY_GROUPS.DIRECT, PROXY_GROUPS.SELECT, PROXY_GROUPS.MANUAL, "REJECT"],
+            proxies: [PROXY_GROUPS.DIRECT, "REJECT"],
         },
         {
             name: "搜狗输入法",
@@ -815,14 +815,14 @@ function buildProxyGroups({
         },
         lowCostNodes.length > 0 || regexFilter
             ? {
-                  name: PROXY_GROUPS.LOW_COST,
-                  icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Lab.png",
-                  type: "url-test",
-                  url: "https://cp.cloudflare.com/generate_204",
-                  ...(!regexFilter
-                      ? { proxies: lowCostNodes }
-                      : { "include-all": true, filter: "(?i)0\\.[0-5]|低倍率|省流|大流量|实验性" }),
-              }
+                name: PROXY_GROUPS.LOW_COST,
+                icon: "https://gcore.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Lab.png",
+                type: "url-test",
+                url: "https://cp.cloudflare.com/generate_204",
+                ...(!regexFilter
+                    ? { proxies: lowCostNodes }
+                    : { "include-all": true, filter: "(?i)0\\.[0-5]|低倍率|省流|大流量|实验性" }),
+            }
             : null,
         ...countryProxyGroups,
     ].filter(Boolean);

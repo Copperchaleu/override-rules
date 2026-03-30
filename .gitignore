@@ -12,3 +12,7 @@ Thumbs.db
 
 # Editor
 .vscode/
+
+# Scripts with secrets
+sync_trackers.sh
+sync_trackers.py
