@@ -274,3 +274,12 @@ DOMAIN-KEYWORD,m-team
 DOMAIN-KEYWORD,torrent
 IP-CIDR,207.241.226.111/32,no-resolve
 IP-CIDR,52.58.128.163/32,no-resolve
+# Auto-synced from Transmission
+DOMAIN,cspt.top
+DOMAIN,tracker.cspt.cc
+DOMAIN,tracker.cspt.date
+DOMAIN,tracker.cspt.top
+DOMAIN,tracker.novahd.top
+DOMAIN,tracker.pterclub.net
+DOMAIN,www.pttime.fun
+DOMAIN,zmpt.cc
