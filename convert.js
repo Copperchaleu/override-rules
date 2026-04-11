@@ -280,6 +280,7 @@ const baseRules = [
     `RULE-SET,SteamFix,${PROXY_GROUPS.DIRECT}`,
     `RULE-SET,GoogleFCM,${PROXY_GROUPS.DIRECT}`,
     `DOMAIN,services.googleapis.cn,${PROXY_GROUPS.SELECT}`,
+    `DOMAIN-SUFFIX,googleusercontent.com,Google}`
     "GEOSITE,CATEGORY-AI-!CN,AI",
     `GEOSITE,GOOGLE-PLAY@CN,${PROXY_GROUPS.DIRECT}`,
     `GEOSITE,MICROSOFT@CN,${PROXY_GROUPS.DIRECT}`,
